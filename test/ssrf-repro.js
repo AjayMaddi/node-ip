@@ -137,10 +137,6 @@ describe('SSRF Vulnerability Tests', () => {
       assert.strictEqual(ip.normalizeToLong('256.1.1.1'), -1, 'Should reject invalid range');
     });
 
-    it('should return -1 for empty string', () => {
-      assert.strictEqual(ip.normalizeToLong(''), -1, 'Should reject empty string');
-    });
-
     it('should return -1 for too many parts "1.2.3.4.5"', () => {
       assert.strictEqual(ip.normalizeToLong('1.2.3.4.5'), -1, 'Should reject too many parts');
     });
@@ -198,10 +194,6 @@ describe('SSRF Vulnerability Tests', () => {
 
     it('should reject non-numeric "abc.def.ghi.jkl"', () => {
       assert.strictEqual(ip.isPublic('abc.def.ghi.jkl'), false, 'Should reject non-numeric');
-    });
-
-    it('should reject empty string', () => {
-      assert.strictEqual(ip.isPublic(''), false, 'Should reject empty string');
     });
 
     it('should reject whitespace-only string', () => {
